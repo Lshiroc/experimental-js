@@ -1,30 +1,30 @@
-let name, surname, age, counter = 0;
-let person1 = [];
-let arr = [];
-let client = {
-    name,
-    surname,
-    age
-};
+let users = [["Batu", "Bozkan"], ["Zeynal", "Mardanli"], ["Moeha", "Fujiwara"]];
+let removedUsers = [];
+console.log(users);
 
-function match(name, surname, age) {
-    /* Apparently, for a reason it doesn't work when you write like
-        client.name = name;
-        client.surname = surname;
-        client.age = age;
-    */
-    client = {
-        name : name,
-        surname : surname,
-        age : age,
-    };
-    person1[counter] = [client];
-    counter++;
+function addLast(nickName, lastName) {
+    users.push([nickName, lastName]);
 }
 
-match("Maho", "Fujiwara", 13);
-match("Chika", "Fujiwara", 17);
-
-for(let i = 0; i < counter; i++) {
-    console.log(person1[i]);
+function addFirst(nickName, lastName) {
+    users.unshift([nickName, lastName]);
 }
+
+function removeLast() {
+    removedUsers.push(users.pop());    
+}
+
+function removeFirst() {
+    removedUsers.push(users.shift());
+}
+
+removeFirst();
+
+removeLast();
+
+addLast("Shiro", "Sora");
+
+addFirst("IShow", "Speed");
+
+console.log(users);
+console.log(removedUsers);
